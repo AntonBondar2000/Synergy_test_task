@@ -8,6 +8,7 @@ docker-compose up --build
 ```
 ### backend сервис доступен по адресу: 0.0.0.0:8081
 ### frontend сервис доступен по адресу: 0.0.0.0:8080
+### Api доступен по адресу: /occupation/api
 ### Если возникает ошибка port already use, необходимось очистить порт и запустить заново
 ```
 
@@ -21,22 +22,23 @@ password: admin
 
 ### Поля модели:
 ```
-id: ID,
-name: String
-companyName: String
-positionName: String
-hireDate: Date
-fireDate: Date
-salary: Int
-fraction: Int
-base: Int
-advance: Int
-byHours: Boolean
+  id: ID,
+  name: String
+  companyName: String
+  positionName: String
+  hireDate: Date
+  fireDate: Date
+  salary: Int
+  fraction: Int
+  base: Int
+  advance: Int
+  byHours: Boolean
 ```
 
 ### Получение всех должностей
 ```
 Запрос:
+
 query {
   getOccupations{
     id,
@@ -56,8 +58,9 @@ query {
 ### Получение должности по id
 ```
 Запрос:
+
 query {
-  getOccupations(id: ID){
+  getOccupation(id: ID){
     id,
     name,
     companyName,
@@ -76,7 +79,6 @@ query {
 ```
 mutation CreateOccupation{
   addOccupation(
-    id: ID,
     name: String
     companyName: String
     positionName: String

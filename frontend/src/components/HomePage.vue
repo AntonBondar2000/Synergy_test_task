@@ -62,10 +62,11 @@
             <td>{{item.positionName}}</td>
             <td>{{item.hireDate}}</td>
             <td>{{item.fireDate}}</td>
-            <td style="position: relative;" @click="showChangeForm">
-              <p>
+            <td style="position: relative; cursor: pointer;" @click="showChangeForm">
+              <p v-if="!item.fireDate">
                 {{item.salary}}({{item.fraction}}%)
               </p>
+              <p v-else>-</p>
               <div v-if="!item.fireDate" class="change_salary form-change">
                 <div class="input-inline">
                   <label for="salary">Salary</label>
@@ -85,7 +86,7 @@
                 </div>
               </div>
             </td>
-            <td style="position: relative;" @click="showChangeForm">
+            <td style="position: relative; cursor: pointer;" @click="showChangeForm">
               <p>{{!item.fireDate ? item.base: '-'}}</p>
               <div v-if="!item.fireDate" class="change_salary form-change">
                 <div class="input-inline">
@@ -102,7 +103,7 @@
                 </div>
               </div>
             </td>
-            <td style="position: relative;" @click="showChangeForm">
+            <td style="position: relative; cursor: pointer;" @click="showChangeForm">
               <p>{{!item.fireDate ? item.advance: '-'}}</p>
               <div v-if="!item.fireDate" class="change_salary form-change">
                 <div class="input-inline">
